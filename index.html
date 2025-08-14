@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spiritual Blessing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: url('assets/images/spiritual-guidance-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #002244;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 400px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #002244;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .verse {
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    .church-tag {
+      font-size: 16px;
+      font-weight: bold;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .watermark {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #ffffffaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="church-tag">✝ हम एक चर्च हैं ✝</div>
+    <h2>Spiritual Guidance</h2>
+    <label for="username">अपना नाम दर्ज करें:</label><br>
+    <input type="text" id="username" placeholder="आपका नाम"><br>
+    <button onclick="showBlessing()">प्रस्तुत करें</button>
+    <div class="verse" id="blessing"></div>
+  </div>
+
+  <div class="watermark">✝ हम एक चर्च हैं • We are a Church ✝</div>
+
+  <script>
+    const verses = [
+      { hi: "परमेश्वर तुम्हारा सहायक है; तुम न डरना।", en: "God is your helper; do not be afraid." },
+      { hi: "प्रभु तुम्हें मार्गदर्शन देगा और तुम्हारी सहायता करेगा।", en: "The Lord will guide you and help you." },
+      { hi: "प्रभु की शांति तुम्हारे हृदय में बनी रहे।", en: "May the peace of the Lord remain in your heart." },
+      { hi: "तेरा भविष्य उज्जवल है, प्रभु तेरे साथ है।", en: "Your future is bright, the Lord is with you." },
+      { hi: "प्रभु तुम्हें आशीष दे और तुम्हारी रक्षा करे।", en: "The Lord bless you and keep you." },
+      { hi: "जो प्रभु पर भरोसा करते हैं, वे कभी लज्जित नहीं होंगे।", en: "Those who trust in the Lord will never be put to shame." },
+      { hi: "प्रभु तेरी रक्षा करेगा, तेरे आने-जाने में।", en: "The Lord will protect you in your coming and going." }
+    ];
+
+    function showBlessing() {
+      const name = document.getElementById('username').value.trim();
+      if (name === "") {
+        alert("कृपया अपना नाम दर्ज करें।");
+        return;
+      }
+
+      const randomVerse = verses[Math.floor(Math.random() * verses.length)];
+      document.getElementById('blessing').innerHTML = `
+        <strong>${name},</strong><br>
+        <span>${randomVerse.hi}</span><br>
+        <em>${randomVerse.en}</em>
+      `;
+    }
+  </script>
+</body>
+</html>
